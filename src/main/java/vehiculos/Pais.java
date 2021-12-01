@@ -1,9 +1,11 @@
 package vehiculos;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Pais {
 	private String nombre;
 	private static ArrayList<Pais> paises= new ArrayList<Pais>();
+	private static int cantidadVendidos = 0;
 
 	public Pais(String nombre){
 		this.nombre= nombre;
@@ -21,6 +23,11 @@ public class Pais {
 		return paises;
 	}
 	
+	public int getCantidadVendidos(){
+		return cantidadVendidos;
+	}
+	
 	public static Pais paisMasVendedor(){
+		return Collections.max(paises, cantidadVendidos);
 	}
 }
