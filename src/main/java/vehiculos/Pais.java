@@ -5,7 +5,7 @@ import java.util.Collections;
 public class Pais {
 	private String nombre;
 	private static ArrayList<Pais> paises= new ArrayList<Pais>();
-	private static int cantidadVendidos = 0;
+	protected int cantidadVendidos = 0;
 
 	public Pais(String nombre){
 		this.nombre= nombre;
@@ -28,6 +28,6 @@ public class Pais {
 	}
 	
 	public static Pais paisMasVendedor(){
-		return Collections.max(paises, cantidadVendidos);
+		return Collections.max(paises, (p1,p2)->p1.cantidadVendidos-p2.cantidadVendidos);
 	}
 }

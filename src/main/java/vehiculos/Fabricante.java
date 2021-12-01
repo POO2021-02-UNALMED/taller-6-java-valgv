@@ -6,8 +6,8 @@ public class Fabricante {
 	private String nombre;
 	private Pais pais;
 	private static ArrayList<Fabricante> fabricantes= new ArrayList<Fabricante>();
-	private static int cantidadVentas = 0;
-
+	protected int cantidadVentas = 0;
+	
 	public Fabricante(String nombre, Pais pais) {
 		this.nombre= nombre;
 		this.pais= pais;
@@ -27,12 +27,12 @@ public class Fabricante {
 	public void setPais(Pais pais){
 		this.pais= pais;
 	}
-
+	
 	public static ArrayList<Fabricante> getFabricantes(){
 		return fabricantes;
 	}
 	
 	public static Fabricante fabricaMayorVentas(){
-		return Collections.max(fabricantes, cantidadVentas);
+		return Collections.max(fabricantes, (f1,f2)->f1.cantidadVentas-f2.cantidadVentas);
 	}
 }
